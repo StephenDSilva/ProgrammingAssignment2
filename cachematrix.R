@@ -54,22 +54,22 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         
-                # Get "inverse matrix" from cache
-                invmat <-x$getinvmat()
+        # Get "inverse matrix" from cache
+        invmat <-x$getinvmat()
                 
-                # If not null i.e inverse matrix is available in cache
-                # return inverse matrix from cache
-                if (!is.null(invmat)){
-                        message("Getting matrix data from cache")
-                        return(invmat)
-                }
+        # If not null i.e inverse matrix is available in cache
+        # return inverse matrix from cache
+        if (!is.null(invmat)){
+                message("Getting matrix data from cache")
+                return(invmat)
+        }
         
-                #if cache does not hold the inverse matrix,
-                #compute the inverse, store it in cache and return the invere matrix
-                matdata <-x$get()
-                invmat <- solve(matdata)
-                x$setinvmat(invmat)
-                invmat
+        #if cache does not hold the inverse matrix,
+        #compute the inverse, store it in cache and return the inverse matrix
+        matdata <-x$get()
+        invmat <- solve(matdata)
+        x$setinvmat(invmat)
+        invmat
                 
 
 }
